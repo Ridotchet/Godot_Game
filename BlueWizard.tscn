@@ -74,7 +74,7 @@ animations = [ {
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 40 ), ExtResource( 16 ), ExtResource( 28 ), ExtResource( 27 ), ExtResource( 47 ), ExtResource( 44 ), ExtResource( 60 ) ],
-"loop": true,
+"loop": false,
 "name": "Salta",
 "speed": 20.0
 }, {
@@ -96,9 +96,12 @@ extents = Vector2( 74.1281, 133.255 )
 script = ExtResource( 65 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
-animation = "Camina"
+animation = "Salta"
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 4 )
+scale = Vector2( 0.2, 0.2 )
 shape = SubResource( 2 )

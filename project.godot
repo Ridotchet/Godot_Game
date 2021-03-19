@@ -16,7 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot_Game"
+run/main_scene="res://Joc.tscn"
 config/icon="res://icon.png"
+
+[layer_names]
+
+2d_physics/layer_1="Personatge"
+2d_physics/layer_2="MapaPrincipal"
+2d_physics/layer_3="MapaFons"
+2d_physics/layer_4="Enemics"
+2d_physics/layer_5="Extres"
 
 [rendering]
 

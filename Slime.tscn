@@ -1,0 +1,53 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://SlimeOrange/SlimeOrange_00003.png" type="Texture" id=1]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00000.png" type="Texture" id=2]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00001.png" type="Texture" id=3]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00002.png" type="Texture" id=4]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00009.png" type="Texture" id=5]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00004.png" type="Texture" id=6]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00005.png" type="Texture" id=7]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00006.png" type="Texture" id=8]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00007.png" type="Texture" id=9]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00008.png" type="Texture" id=10]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00016.png" type="Texture" id=11]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00027.png" type="Texture" id=12]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00029.png" type="Texture" id=13]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00017.png" type="Texture" id=14]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00028.png" type="Texture" id=15]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00018.png" type="Texture" id=16]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00025.png" type="Texture" id=17]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00023.png" type="Texture" id=18]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00026.png" type="Texture" id=19]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00020.png" type="Texture" id=20]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00021.png" type="Texture" id=21]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00019.png" type="Texture" id=22]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00022.png" type="Texture" id=23]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00024.png" type="Texture" id=24]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00010.png" type="Texture" id=25]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00011.png" type="Texture" id=26]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00012.png" type="Texture" id=27]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00014.png" type="Texture" id=28]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00015.png" type="Texture" id=29]
+[ext_resource path="res://SlimeOrange/SlimeOrange_00013.png" type="Texture" id=30]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 18 ), ExtResource( 24 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 29.5, 19.25 )
+
+[node name="Slime" type="KinematicBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.25, 5.5 )
+shape = SubResource( 2 )

@@ -1,3 +1,17 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://BlueWizard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MapaPrincipal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Slime.tscn" type="PackedScene" id=3]
 
 [node name="Joc" type="Node2D"]
+
+[node name="BlueWizard" parent="." instance=ExtResource( 1 )]
+collision_mask = 10
+
+[node name="Camara" type="Camera2D" parent="BlueWizard"]
+current = true
+
+[node name="MapaPrincipal" parent="." instance=ExtResource( 2 )]
+
+[node name="Slime" parent="." instance=ExtResource( 3 )]
