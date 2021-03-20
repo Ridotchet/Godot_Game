@@ -1,13 +1,14 @@
 extends KinematicBody2D
 
-
 var velocitat:Vector2
 var acceleracio = 10
-
+var vida = 100
 
 func _ready():
 	$AnimatedSprite.scale = Vector2(0.2, 0.2)
 	$CollisionShape2D.scale = Vector2(0.2, 0.2)
+	
+
 
 func _process(delta):
 	velocitat.x = 0
@@ -39,3 +40,11 @@ func anima(velocitat:Vector2):
 	elif velocitat.x < 0:
 		$AnimatedSprite.flip_h = true
 		$AnimatedSprite.play('Camina')
+	
+
+
+func mal(quantitat):
+	vida -= quantitat
+	print(vida)
+	if vida == 0:
+		queue_free()

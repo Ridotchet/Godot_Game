@@ -1,17 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://BlueWizard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MapaPrincipal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Slime.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MapaPrincipal.tres" type="TileSet" id=4]
 
 [node name="Joc" type="Node2D"]
 
 [node name="BlueWizard" parent="." instance=ExtResource( 1 )]
-collision_mask = 10
+position = Vector2( 78.4877, 117.732 )
+collision_mask = 2147483658
 
 [node name="Camara" type="Camera2D" parent="BlueWizard"]
 current = true
-
-[node name="MapaPrincipal" parent="." instance=ExtResource( 2 )]
+limit_left = 0
 
 [node name="Slime" parent="." instance=ExtResource( 3 )]
+position = Vector2( 429.996, 12.592 )
+collision_layer = 8
+collision_mask = 2147483651
+
+[node name="MapaPrincipal" parent="." instance=ExtResource( 2 )]
+collision_layer = 2
+collision_mask = 0
+tile_data = PoolIntArray( -786422, 23, 0, -786408, 33, 0, -262134, 24, 0, 196632, 14, 0, 196640, 17, 0, 196648, 17, 0, 196656, 17, 0, 196664, 17, 0, 196672, 20, 0, 262154, 25, 0, 720920, 15, 0, 720928, 26, 0, 720936, 19, 0, 720944, 27, 0, 720952, 26, 0, 720960, 22, 0, 1245184, 14, 0, 1245192, 17, 0, 1245200, 17, 0, 1245208, 29, 0, 1245216, 21, 0, 1245232, 16, 0, 1245240, 22, 0, 1769472, 15, 0, 1769480, 18, 0, 1769488, 18, 0, 1769496, 18, 0, 1769504, 21, 0, 2293760, 15, 0, 2293768, 18, 0, 2293776, 18, 0, 2293784, 18, 0, 2293792, 28, 0, 2293800, 17, 0, 2293808, 17, 0, 2293816, 17, 0, 2293824, 17, 0, 2293832, 17, 0, 2293840, 17, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -50
+scroll_base_scale = Vector2( 1.1, 1.1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="TileMap" type="TileMap" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 2.38419e-07 )
+scale = Vector2( 0.2, 0.2 )
+tile_set = ExtResource( 4 )
+format = 1
+tile_data = PoolIntArray( -917495, 23, 0, -917481, 33, 0, -393207, 24, 0, 65559, 14, 0, 65567, 17, 0, 65575, 17, 0, 65583, 17, 0, 65591, 17, 0, 65599, 20, 0, 131081, 25, 0, 589847, 15, 0, 589855, 26, 0, 589863, 19, 0, 589871, 27, 0, 589879, 26, 0, 589887, 22, 0, 1179647, 14, 0, 1114119, 17, 0, 1114127, 17, 0, 1114135, 29, 0, 1114143, 21, 0, 1114159, 16, 0, 1114167, 22, 0, 1703935, 15, 0, 1638407, 18, 0, 1638415, 18, 0, 1638423, 18, 0, 1638431, 21, 0, 2228223, 15, 0, 2162695, 18, 0, 2162703, 18, 0, 2162711, 18, 0, 2162719, 28, 0, 2162727, 17, 0, 2162735, 17, 0, 2162743, 17, 0, 2162751, 17, 0, 2162759, 17, 0, 2162767, 17, 0 )
