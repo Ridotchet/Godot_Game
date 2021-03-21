@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocitat:Vector2
 var acceleracio = 10
-var vida = 100
+export var vida = 100
 
 func _ready():
 	$AnimatedSprite.scale = Vector2(0.2, 0.2)
@@ -46,5 +46,6 @@ func anima(velocitat:Vector2):
 func mal(quantitat):
 	vida -= quantitat
 	print(vida)
+	velocitat.y -= 300
 	if vida == 0:
 		queue_free()

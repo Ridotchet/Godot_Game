@@ -16,30 +16,34 @@ func _process(delta):
 	else:
 		velocitat.y = 0
 	
+	if enemic_esquerra == true:
+		velocitat.x = -10
+	else:
+		velocitat.x = 0
+	if enemic_dreta == true:
+		velocitat.x = 10
+	else:
+		velocitat.x = 0
+	
+	
 	velocitat = move_and_slide(velocitat)
 	
-	if enemic_esquerra == true:
-		position.x -= 10*delta
-	if enemic_dreta == true:
-		position.x += 10*delta
-	
-
 
 func _on_Area2D_body_entered(body):
 	if body.has_method('mal'):
 		body.mal(10)
-		body.velocitat.y -= 100
-
+	
 
 func _on_Area2D2_body_entered(body):
 	if body.has_method('mal'):
 		if body.position.x > position.x:
 			enemic_dreta = true
-		else:
-			enemic_dreta = false
-		
 		if body.position.x < position.x:
 			enemic_esquerra = true
-		else:
-			enemic_esquerra = false
 		
+	
+
+func _on_Area2D2_body_exited(body):
+	if body.has_method('mal'):
+		enemic_dreta = false
+		enemic_esquerra = false
