@@ -4,17 +4,18 @@ var velocitat : Vector2
 var acceleracio = 10
 var enemic_dreta = false
 var enemic_esquerra = false
+var target :KinematicBody2D
+var target_no :KinematicBody2D
 
 func _ready():
-	pass
+	$Timer.wait_time = 3
+	$Timer.start()
 
 func _process(delta):
 	$AnimatedSprite.play('Idle')
 	
 	if not is_on_floor():
 		velocitat.y += acceleracio
-	else:
-		velocitat.y = 0
 	
 	if enemic_esquerra == true:
 		velocitat.x = -10
@@ -25,6 +26,12 @@ func _process(delta):
 	else:
 		velocitat.x = 0
 	
+	if target:
+		if target.position.x > position.x:
+			velocitat.x += 100
+		elif target.position.x < position.x:
+			velocitat.x -= 100
+		
 	
 	velocitat = move_and_slide(velocitat)
 	
@@ -36,14 +43,15 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D2_body_entered(body):
 	if body.has_method('mal'):
-		if body.position.x > position.x:
-			enemic_dreta = true
-		if body.position.x < position.x:
-			enemic_esquerra = true
+		target = body
 		
 	
 
 func _on_Area2D2_body_exited(body):
 	if body.has_method('mal'):
-		enemic_dreta = false
-		enemic_esquerra = false
+		target = target_no
+
+func _on_Timer_timeout():
+	if is_on_floor():
+		velocitat.y -= 200
+	$Timer.start()

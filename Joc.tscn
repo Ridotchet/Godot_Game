@@ -30,7 +30,6 @@ layer = -50
 scroll_base_scale = Vector2( 1.1, 1.1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Darrere1"]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="Darrere1/ParallaxLayer"]
 position = Vector2( 0, 2.38419e-07 )
@@ -45,7 +44,6 @@ tile_data = PoolIntArray( -917495, 23, 0, -917481, 33, 0, -393207, 24, 0, 65559,
 scroll_base_scale = Vector2( 1.05, 1.05 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Darrere2"]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="Darrere2/ParallaxLayer"]
 position = Vector2( -13, -26 )
@@ -61,7 +59,6 @@ layer = 50
 scroll_base_scale = Vector2( 1.5, 1.5 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Davant1"]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="Davant1/ParallaxLayer"]
 position = Vector2( 26, 51 )
