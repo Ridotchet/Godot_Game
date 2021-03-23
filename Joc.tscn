@@ -7,6 +7,11 @@
 
 [node name="Joc" type="Node2D"]
 
+[node name="Slime" parent="." instance=ExtResource( 3 )]
+position = Vector2( 672.722, 24.5784 )
+collision_layer = 8
+collision_mask = 2147483650
+
 [node name="BlueWizard" parent="." instance=ExtResource( 1 )]
 position = Vector2( 73.448, 212.226 )
 collision_mask = 2147483658
@@ -14,11 +19,6 @@ collision_mask = 2147483658
 [node name="Camara" type="Camera2D" parent="BlueWizard"]
 current = true
 limit_left = 0
-
-[node name="Slime" parent="." instance=ExtResource( 3 )]
-position = Vector2( 429.996, 12.592 )
-collision_layer = 8
-collision_mask = 2147483651
 
 [node name="MapaPrincipal" parent="." instance=ExtResource( 2 )]
 collision_layer = 2
