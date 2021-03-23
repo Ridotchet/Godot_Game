@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var velocitat:Vector2
 var acceleracio = 10
-export var vida = 100
+export var vida = 30
 var temps = 5
 var inmunitat :bool
 
@@ -13,9 +13,14 @@ func _ready():
 	
 	$Inmunitat.wait_time = 4
 	
-	$Visibilitat.wait_time = 0.5
+	$Visibilitat.wait_time = 0.25
 	
-
+	$Camara/Vida.margin_left = -50
+	$Camara/Vida.margin_top = -100
+	$Camara/Vida.margin_right = 50
+	$Camara/Vida.margin_bottom = -50
+	
+	$Camara/Vida.text = 'Vida: ' + str(vida) +'/30♥️'
 
 func _process(delta):
 	velocitat.x = 0
@@ -53,25 +58,25 @@ func anima(velocitat:Vector2):
 func mal(quantitat):
 	if inmunitat == false:
 		vida -= quantitat
-		print(vida)
+		$Camara/Vida.text = 'Vida: ' + str(vida) +'/30♥️'
 		$Inmunitat.start()
 		inmunitat = true
 		collision_mask = 2147483650
 		$Visibilitat.start()
-		visible = false
+		$AnimatedSprite.visible = false
 		if vida == 0:
 			queue_free()
 
 
 func _on_Visibilitat_timeout():
 	if inmunitat == true:
-		if visible == false:
-			visible = true
+		if $AnimatedSprite.visible == false:
+			$AnimatedSprite.visible = true
 		else:
-			visible = false
+			$AnimatedSprite.visible = false
 		$Visibilitat.start()
-	elif visible == false:
-		visible = true
+	elif $AnimatedSprite.visible == false:
+		$AnimatedSprite.visible = true
 
 
 func _on_Inmunitat_timeout():

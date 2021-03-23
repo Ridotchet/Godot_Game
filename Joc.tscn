@@ -20,6 +20,16 @@ collision_mask = 2147483658
 current = true
 limit_left = 0
 
+[node name="Vida" type="TextEdit" parent="BlueWizard/Camara"]
+margin_left = -50.0
+margin_top = -100.0
+margin_right = 50.0
+margin_bottom = -50.0
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MapaPrincipal" parent="." instance=ExtResource( 2 )]
 collision_layer = 2
 collision_mask = 0
