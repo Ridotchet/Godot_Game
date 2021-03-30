@@ -12,6 +12,8 @@ var moviment = 1
 func _ready():
 	$TimerSalt.wait_time = 3
 	$TimerSalt.start()
+	
+	collision_mask = 2147483658
 
 func _process(delta):
 	$AnimatedSprite.play('Idle')
@@ -64,3 +66,9 @@ func _on_Timer_timeout():
 			velocitat.x += 150*moviment_no
 			moviment_no *= -1
 	$TimerSalt.start()
+	
+func mort_slime():
+	collision_mask = 2147483648
+
+	velocitat.x = 200
+	velocitat.y = -200
