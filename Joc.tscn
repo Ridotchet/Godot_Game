@@ -10,7 +10,12 @@
 [node name="Slime" parent="." instance=ExtResource( 3 )]
 position = Vector2( 672.722, 24.5784 )
 collision_layer = 8
-collision_mask = 2147483658
+collision_mask = 2147483651
+
+[node name="Slime2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 538.722, 26.5784 )
+collision_layer = 8
+collision_mask = 2147483651
 
 [node name="BlueWizard" parent="." instance=ExtResource( 1 )]
 position = Vector2( 73.448, 212.226 )

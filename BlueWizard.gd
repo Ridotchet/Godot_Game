@@ -7,7 +7,6 @@ var temps = 5
 var inmunitat :bool
 
 func _ready():
-	print(collision_mask)
 	$AnimatedSprite.scale = Vector2(0.2, 0.2)
 	
 	$CollisionShape2D.scale = Vector2(0.2, 0.2)
@@ -22,6 +21,7 @@ func _ready():
 	$Camara/Vida.margin_bottom = -50
 	
 	$Camara/Vida.text = 'Vida: ' + str(vida) +'/30♥️'
+	
 	
 
 func _process(delta):
@@ -63,6 +63,7 @@ func mal(quantitat):
 		$Camara/Vida.text = 'Vida: ' + str(vida) +'/30♥️'
 		$Inmunitat.start()
 		inmunitat = true
+		collision_layer = 0
 		collision_mask = 2147483650
 		$Visibilitat.start()
 		$AnimatedSprite.visible = false
@@ -83,21 +84,13 @@ func _on_Visibilitat_timeout():
 
 func _on_Inmunitat_timeout():
 	inmunitat = false
+	collision_layer = 1
 	collision_mask = 2147483658
 
 
 func _on_Peus_body_entered(body):
-	print('ha entrat als peus')
+	print(body)
 	if body.has_method('mort_slime'):
-		print('té la funció')
 		collision_mask = 2147483650
-		print('ja no colisiona')
-		$Mort_slime.start()
-		body.mort_slime(200)
-		print('ha fet la mort?')
-		velocitat.y = -500
-		print('ha pujat?')
-
-
-func _on_Mort_Slime_timeout():
-	collision_mask = 2147483658
+		body.mort_slime()
+		velocitat.y = -200

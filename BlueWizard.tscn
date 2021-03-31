@@ -90,10 +90,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 70.1337, 124.582 )
+extents = Vector2( 70.1337, 127.833 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 13.9282, 3.71272 )
+extents = Vector2( 13.9282, 3.6961 )
 
 [node name="BlueWizard" type="KinematicBody2D"]
 script = ExtResource( 65 )
@@ -105,7 +105,7 @@ animation = "Salta"
 frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.23597, -0.404344 )
+position = Vector2( -0.117981, 0.179844 )
 scale = Vector2( 0.2, 0.2 )
 shape = SubResource( 2 )
 
@@ -116,11 +116,8 @@ shape = SubResource( 2 )
 [node name="Peus" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Peus"]
-position = Vector2( -0.491323, 28.1086 )
+position = Vector2( -0.491323, 30.0013 )
 shape = SubResource( 3 )
-
-[node name="Mort_Slime" type="Timer" parent="."]
 [connection signal="timeout" from="Inmunitat" to="." method="_on_Inmunitat_timeout"]
 [connection signal="timeout" from="Visibilitat" to="." method="_on_Visibilitat_timeout"]
 [connection signal="body_entered" from="Peus" to="." method="_on_Peus_body_entered"]
-[connection signal="timeout" from="Mort_Slime" to="." method="_on_Mort_Slime_timeout"]
