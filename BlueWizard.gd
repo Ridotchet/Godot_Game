@@ -22,7 +22,10 @@ func _ready():
 	
 	$Camara/Vida.text = 'Vida: ' + str(vida) +'/30♥️'
 	
-	
+	$Camara.limit_left = 0
+	$Camara.limit_top = -170
+	$Camara.limit_right = 2200
+	$Camara.limit_bottom = 600
 
 func _process(delta):
 	velocitat.x = 0
@@ -32,8 +35,8 @@ func _process(delta):
 		velocitat.x = -150
 	
 	
-	if not is_on_floor():
-		velocitat.y += acceleracio
+	velocitat.y += acceleracio
+	
 	if Input.is_action_just_pressed("ui_up"):
 		if is_on_floor() or is_on_wall():
 			velocitat.y = -350
@@ -42,6 +45,7 @@ func _process(delta):
 	
 	anima(velocitat)
 	
+	camara(delta)
 
 func anima(velocitat:Vector2):
 	if velocitat.length() == 0:
@@ -89,8 +93,20 @@ func _on_Inmunitat_timeout():
 
 
 func _on_Peus_body_entered(body):
-	print(body)
 	if body.has_method('mort_slime'):
 		collision_mask = 2147483650
 		body.mort_slime()
 		velocitat.y = -200
+
+func camara(delta):
+	if position.y > 600 and position.y < 2000:
+		$Camara.limit_left = 0
+		$Camara.limit_top = 600
+		$Camara.limit_right = 2200
+		$Camara.limit_bottom = 2000
+	
+	if position.y < 600 and position.y > -170:
+		$Camara.limit_left = 0
+		$Camara.limit_top = -170
+		$Camara.limit_right = 2200
+		$Camara.limit_bottom = 600

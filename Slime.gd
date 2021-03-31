@@ -44,6 +44,11 @@ func _process(delta):
 	
 	
 	velocitat = move_and_slide(velocitat, Vector2.UP)
+	
+	
+	if position.y > 2000:
+		queue_free()
+	
 
 func _on_Area2D_body_entered(body):
 	if body.has_method('mal'):
