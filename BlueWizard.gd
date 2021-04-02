@@ -45,7 +45,7 @@ func _process(delta):
 	
 	anima(velocitat)
 	
-	camara(delta)
+	camara()
 
 func anima(velocitat:Vector2):
 	if velocitat.length() == 0:
@@ -90,23 +90,28 @@ func _on_Inmunitat_timeout():
 	inmunitat = false
 	collision_layer = 1
 	collision_mask = 2147483658
+	$Inmunitat.wait_time = 4
 
 
 func _on_Peus_body_entered(body):
 	if body.has_method('mort_slime'):
 		collision_mask = 2147483650
+		inmunitat = true
+		$Inmunitat.wait_time = 2
+		$Inmunitat.start()
 		body.mort_slime()
 		velocitat.y = -200
 
-func camara(delta):
-	if position.y > 600 and position.y < 2000:
-		$Camara.limit_left = 0
-		$Camara.limit_top = 600
-		$Camara.limit_right = 2200
-		$Camara.limit_bottom = 2000
-	
-	if position.y < 600 and position.y > -170:
+
+func camara():
+	if position.y < 575 and position.y > -170:
 		$Camara.limit_left = 0
 		$Camara.limit_top = -170
 		$Camara.limit_right = 2200
-		$Camara.limit_bottom = 600
+		$Camara.limit_bottom = 575
+	if position.y > 575 and position.y < 1500:
+		$Camara.limit_left = 1850
+		$Camara.limit_top = 575
+		$Camara.limit_right = 3500
+		$Camara.limit_bottom = 1500
+	

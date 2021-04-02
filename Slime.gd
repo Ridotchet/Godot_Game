@@ -46,7 +46,7 @@ func _process(delta):
 	velocitat = move_and_slide(velocitat, Vector2.UP)
 	
 	
-	if position.y > 2000:
+	if position.y > 3000:
 		queue_free()
 	
 
