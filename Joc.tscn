@@ -76,6 +76,7 @@ format = 1
 tile_data = PoolIntArray( -1376166, 0, 0, 65573, 1, 0, 2031777, 1, 0 )
 
 [node name="Pedres" type="ParallaxBackground" parent="."]
+layer = -10
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Pedres"]
 
@@ -83,7 +84,7 @@ tile_data = PoolIntArray( -1376166, 0, 0, 65573, 1, 0, 2031777, 1, 0 )
 scale = Vector2( 0.2, 0.2 )
 tile_set = ExtResource( 4 )
 format = 1
-tile_data = PoolIntArray( 65623, 4, 0, 983072, 2, 0, 1179726, 5, 0, 1835006, 3, 0, 3276948, 2, 0, 3997871, 4, 0, 4325591, 3, 0, 5898434, 5, 0, 6619289, 4, 0 )
+tile_data = PoolIntArray( 65623, 4, 0, 983072, 2, 0, 1179726, 5, 0, 1835006, 3, 0, 3276948, 2, 0, 3997871, 4, 0, 4325591, 3, 0, 5898434, 5, 0, 6553854, 3, 0, 6619289, 4, 0 )
 
 [node name="FonsTotal" type="ParallaxBackground" parent="."]
 scroll_base_scale = Vector2( 0.9, -9 )
